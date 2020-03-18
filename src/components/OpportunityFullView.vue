@@ -17,9 +17,12 @@
 </template>
 
 <script>
+import opportunityList from "@/assets/opportunities.json";
 export default {
-  props: {
-    oppData: Object
+  data: function() {
+    return {
+      oppData: opportunityList[this.$route.params.name]
+    };
   },
   components: {}
 };
