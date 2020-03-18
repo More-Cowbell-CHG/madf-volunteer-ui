@@ -1,0 +1,41 @@
+{
+  "opportunity1": {
+    "office": "SLC",
+    "name": "Test",
+    "desc": "Lorem Ipsum",
+    "slot": {
+      "date": "Mar 13, 2020",
+      "numberOfVolunteers": 20
+    },
+    "status": "Active",
+    "deadline": "Mar 10, 2020",
+    "address": "123 Main St, SLC, 84111",
+    "waiver": "www.test.com"
+  },
+  "opportunity2": {
+    "office": "SLC",
+    "name": "Test 2",
+    "desc": "Lorem Ipsum",
+    "slot": {
+      "date": "Mar 20, 2020",
+      "numberOfVolunteers": 20
+    },
+    "status": "Active",
+    "deadline": "Mar 13, 2020",
+    "address": "123 Main St, SLC, 84111",
+    "waiver": "www.test.com"
+  },
+  "opportunity3": {
+    "office": "SLC",
+    "name": "Test 3",
+    "desc": "Lorem Ipsum",
+    "slot": {
+      "date": "Mar 25, 2020",
+      "numberOfVolunteers": 20
+    },
+    "status": "Active",
+    "deadline": "Mar 20, 2020",
+    "address": "123 Main St, SLC, 84111",
+    "waiver": "www.test.com"
+  }
+}

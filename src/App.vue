@@ -10,7 +10,7 @@
           <b-navbar-nav>
             <b-nav-item to="#">Home</b-nav-item>
             <b-nav-item to="#">About</b-nav-item>
-            <b-nav-item to="#">Voluteer</b-nav-item>
+            <b-nav-item to="/opportunities">Voluteer</b-nav-item>
             <b-nav-item to="#">Donate</b-nav-item>
             <b-nav-item to="#">Resources</b-nav-item>
             <b-nav-item to="#">Contact & FAQ</b-nav-item>
