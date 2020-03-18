@@ -1,6 +1,6 @@
 [
   {
-    "_id": "a98dfyiwer8",
+    "_id": "23498nfd98sdf",
     "created": {
       "user": "3948jfsd",
       "time": 1584566132326
@@ -11,6 +11,7 @@
     },
     "title": "Donate Blood",
     "description": "Visit the vampires",
+    "office": "SLC",
     "location": {
       "name": "CHG Headquarters",
       "address": "123 State St, Salt Lake City, UT 84111",
@@ -44,7 +45,7 @@
     ]
   },
   {
-    "_id": "a98dfyiwer8",
+    "_id": "234rfnfd98sdf",
     "created": {
       "user": "3948jfsd",
       "time": 1584566132326
@@ -55,6 +56,7 @@
     },
     "title": "Help Puppies",
     "description": "Play with Puppies",
+    "office": "SLC",
     "location": {
       "name": "CHG Headquarters",
       "address": "123 Main St, Salt Lake City, UT 84111",
@@ -65,7 +67,6 @@
     },
     "status": "open",
     "deadline": 1584566132326,
-    "waiver": "You have to agree to this",
     "slots": [
       {
         "start": 1584566132326,
@@ -88,7 +89,7 @@
     ]
   },
   {
-    "_id": "a98dfyiwer8",
+    "_id": "2349fgs8nfd98sdf",
     "created": {
       "user": "3948jfsd",
       "time": 1584566132326
@@ -99,6 +100,7 @@
     },
     "title": "Cook food for Homeless",
     "description": "Read the title",
+    "office": "Ft Lauderdale",
     "location": {
       "name": "CHG Headquarters",
       "address": "666 State St, Salt Lake City, UT 84111",
@@ -109,7 +111,7 @@
     },
     "status": "open",
     "deadline": 1584566132326,
-    "waiver": "You have to agree to this",
+    "waiver": "You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this \n\nYou have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this \n\nYou have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this ",
     "slots": [
       {
         "start": 1584566132326,

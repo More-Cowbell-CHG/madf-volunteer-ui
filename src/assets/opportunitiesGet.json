@@ -1,0 +1,49 @@
+{
+  "opportunities": [
+    {
+      "_id": "23498nfd98sdf",
+      "title": "Help Puppies",
+      "office": "SLC",
+      "location": {
+        "name": "CHG Headquarters",
+        "address": "123 State St, Salt Lake City, UT 84111",
+        "latlng": {
+          "lat": 40.6195957,
+          "lng": -111.9165294
+        }
+      },
+      "status": "Open",
+      "openSlots": 24
+    },
+    {
+      "_id": "234rfnfd98sdf",
+      "title": "Help Homeless",
+      "office": "Ft Lauderdale",
+      "location": {
+        "name": "CHG Headquarters",
+        "address": "666 State St, Salt Lake City, UT 84111",
+        "latlng": {
+          "lat": 40.6195957,
+          "lng": -111.9165294
+        }
+      },
+      "status": "Open",
+      "openSlots": 12
+    },
+    {
+      "_id": "2349fgs8nfd98sdf",
+      "title": "Donate Blood",
+      "office": "SLC",
+      "location": {
+        "name": "CHG Headquarters",
+        "address": "123 Main St, Salt Lake City, UT 84111",
+        "latlng": {
+          "lat": 40.6195957,
+          "lng": -111.9165294
+        }
+      },
+      "status": "Open",
+      "openSlots": 100
+    }
+  ]
+}
