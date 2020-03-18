@@ -7,7 +7,11 @@
       <h4>Status: {{ oppData.status }}</h4>
       <div class="address-link">
         <h4>Location:</h4>
-        <b-link :to="`googlemaps.com/${oppData.address}`" class="inline-link">{{ oppData.address }}</b-link>
+        <b-link
+          :href="`https://www.google.com/maps/search/?api=1&query=${oppData.address}`"
+          target="_blank"
+          class="inline-link"
+        >{{ oppData.address }}</b-link>
       </div>
       <h6>Sign Up Deadline: {{ oppData.deadline }}</h6>
     </div>
