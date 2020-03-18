@@ -1,10 +1,28 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
+    <div class="bg-light">
+      <b-container>
+        <b-row>
+          <b-col>
+            <a href="#">Site footer</a>
+          </b-col>
+          <b-col>
+            <a href="#">Home</a>
+          </b-col>
+          <b-col>
+            <a href="#">About</a>
+          </b-col>
+          <b-col>
+            <a href="#">Contact</a>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
   </div>
 </template>
 
