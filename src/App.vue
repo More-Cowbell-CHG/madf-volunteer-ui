@@ -1,10 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <b-navbar toggleable="lg" type="dark" variant="info">
+      <b-container>
+        <b-navbar-brand to="#">Site Nav</b-navbar-brand>
+
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav>
+            <b-nav-item to="#">Home</b-nav-item>
+            <b-nav-item to="#">About</b-nav-item>
+            <b-nav-item to="#">Voluteer</b-nav-item>
+            <b-nav-item to="#">Donate</b-nav-item>
+            <b-nav-item to="#">Resources</b-nav-item>
+            <b-nav-item to="#">Contact & FAQ</b-nav-item>
+          </b-navbar-nav>
+
+          <b-navbar-nav class="ml-auto">
+            <b-nav-item-dropdown text="Opportunities" right>
+              <b-dropdown-item to="#">Division name</b-dropdown-item>
+              <b-dropdown-item to="#">Division name</b-dropdown-item>
+              <b-dropdown-item to="#">Division name</b-dropdown-item>
+              <b-dropdown-item to="#">Division name</b-dropdown-item>
+            </b-nav-item-dropdown>
+
+            <b-nav-item-dropdown right>
+              <template v-slot:button-content>
+                <em>User</em>
+              </template>
+              <b-dropdown-item to="#">Sign in</b-dropdown-item>
+            </b-nav-item-dropdown>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-container>
+    </b-navbar>
+
+    <router-view />
   </div>
 </template>
 
