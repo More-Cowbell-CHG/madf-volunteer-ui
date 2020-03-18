@@ -37,7 +37,7 @@
 
     <router-view />
 
-    <div class="bg-light">
+    <div class="site-footer position-absolute d-flex justify-content-center align-items-center w-100 bg-light">
       <b-container>
         <b-row>
           <b-col sm="12" lg="2">
@@ -84,5 +84,9 @@
       color: #42b983;
     }
   }
+}
+.site-footer {
+  bottom: 0;
+  height: 150px;
 }
 </style>
