@@ -2,14 +2,14 @@
   <div id="app">
     <b-navbar toggleable="lg" type="dark" variant="info">
       <b-container>
-        <b-navbar-brand to="#">Site Nav</b-navbar-brand>
+        <b-navbar-brand to="/">Site logo</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <b-nav-item to="#">Home</b-nav-item>
-            <b-nav-item to="#">About</b-nav-item>
+            <b-nav-item to="/">Home</b-nav-item>
+            <b-nav-item to="/about">About</b-nav-item>
             <b-nav-item to="/opportunities">Voluteer</b-nav-item>
             <b-nav-item to="#">Donate</b-nav-item>
             <b-nav-item to="#">Resources</b-nav-item>
@@ -40,26 +40,23 @@
     <div class="bg-light">
       <b-container>
         <b-row>
-          <b-col class="text-left">
-            <a to="#">Site footer</a>
+          <b-col sm="12" lg="2">
+            <router-link to="/">Home</router-link>
           </b-col>
-          <b-col sm="12" md="auto">
-            <a to="#">Home</a>
+          <b-col sm="12" lg="2">
+            <router-link to="/about">About</router-link>
           </b-col>
-          <b-col sm="12" md="auto">
-            <a to="#">About</a>
+          <b-col sm="12" lg="2">
+            <router-link to="/opportunities">Volunteer</router-link>
           </b-col>
-          <b-col sm="12" md="auto">
-            <a to="#">Volunteer</a>
+          <b-col sm="12" lg="2">
+            <router-link to="#">Donate</router-link>
           </b-col>
-          <b-col sm="12" md="auto">
-            <a to="#">Donate</a>
+          <b-col sm="12" lg="2">
+            <router-link to="#">Resources</router-link>
           </b-col>
-          <b-col sm="12" md="auto">
-            <a to="#">Resources</a>
-          </b-col>
-          <b-col sm="12" md="auto">
-            <a to="#">Contact & FAQ</a>
+          <b-col sm="12" lg="2">
+            <router-link to="#">Contact & FAQ</router-link>
           </b-col>
         </b-row>
       </b-container>
