@@ -1,41 +1,134 @@
-{
-  "opportunity1": {
-    "office": "SLC",
-    "name": "Test",
-    "desc": "Lorem Ipsum",
-    "slot": {
-      "date": "Mar 13, 2020",
-      "numberOfVolunteers": 20
+[
+  {
+    "_id": "a98dfyiwer8",
+    "created": {
+      "user": "3948jfsd",
+      "time": 1584566132326
     },
-    "status": "Active",
-    "deadline": "Mar 10, 2020",
-    "address": "123 Main St, SLC, 84111",
-    "waiver": "www.test.com"
+    "lastModified": {
+      "user": "3948jfsd",
+      "time": 1584566132326
+    },
+    "title": "Donate Blood",
+    "description": "Visit the vampires",
+    "location": {
+      "name": "CHG Headquarters",
+      "address": "123 State St, Salt Lake City, UT 84111",
+      "latlng": {
+        "lat": 40.6195957,
+        "lng": -111.9165294
+      }
+    },
+    "status": "open",
+    "deadline": 1584566132326,
+    "waiver": "You have to agree to this",
+    "slots": [
+      {
+        "start": 1584566132326,
+        "limit": 5,
+        "volunteers": [
+          {
+            "id": "3948jfsd",
+            "name": "Robert J. Walker"
+          },
+          {
+            "id": "3948jfsd3rf",
+            "name": "Brian Barrow"
+          },
+          {
+            "id": "3948jfsd234fgsf",
+            "name": "Chris Dixon"
+          }
+        ]
+      }
+    ]
   },
-  "opportunity2": {
-    "office": "SLC",
-    "name": "Test 2",
-    "desc": "Lorem Ipsum",
-    "slot": {
-      "date": "Mar 20, 2020",
-      "numberOfVolunteers": 20
+  {
+    "_id": "a98dfyiwer8",
+    "created": {
+      "user": "3948jfsd",
+      "time": 1584566132326
     },
-    "status": "Active",
-    "deadline": "Mar 13, 2020",
-    "address": "123 Main St, SLC, 84111",
-    "waiver": "www.test.com"
+    "lastModified": {
+      "user": "3948jfsd",
+      "time": 1584566132326
+    },
+    "title": "Help Puppies",
+    "description": "Play with Puppies",
+    "location": {
+      "name": "CHG Headquarters",
+      "address": "123 Main St, Salt Lake City, UT 84111",
+      "latlng": {
+        "lat": 40.6195957,
+        "lng": -111.9165294
+      }
+    },
+    "status": "open",
+    "deadline": 1584566132326,
+    "waiver": "You have to agree to this",
+    "slots": [
+      {
+        "start": 1584566132326,
+        "limit": 5,
+        "volunteers": [
+          {
+            "id": "3948jfsd",
+            "name": "Robert J. Walker"
+          },
+          {
+            "id": "3948jfsd3rf",
+            "name": "Brian Barrow"
+          },
+          {
+            "id": "3948jfsd234fgsf",
+            "name": "Chris Dixon"
+          }
+        ]
+      }
+    ]
   },
-  "opportunity3": {
-    "office": "SLC",
-    "name": "Test 3",
-    "desc": "Lorem Ipsum",
-    "slot": {
-      "date": "Mar 25, 2020",
-      "numberOfVolunteers": 20
+  {
+    "_id": "a98dfyiwer8",
+    "created": {
+      "user": "3948jfsd",
+      "time": 1584566132326
     },
-    "status": "Active",
-    "deadline": "Mar 20, 2020",
-    "address": "123 Main St, SLC, 84111",
-    "waiver": "www.test.com"
+    "lastModified": {
+      "user": "3948jfsd",
+      "time": 1584566132326
+    },
+    "title": "Cook food for Homeless",
+    "description": "Read the title",
+    "location": {
+      "name": "CHG Headquarters",
+      "address": "666 State St, Salt Lake City, UT 84111",
+      "latlng": {
+        "lat": 40.6195957,
+        "lng": -111.9165294
+      }
+    },
+    "status": "open",
+    "deadline": 1584566132326,
+    "waiver": "You have to agree to this",
+    "slots": [
+      {
+        "start": 1584566132326,
+        "limit": 5,
+        "volunteers": [
+          {
+            "id": "3948jfsd",
+            "name": "Robert J. Walker"
+          },
+          {
+            "id": "3948jfsd3rf",
+            "name": "Brian Barrow"
+          },
+          {
+            "id": "3948jfsd234fgsf",
+            "name": "Chris Dixon"
+          }
+        ]
+      }
+    ]
   }
-}
+]
