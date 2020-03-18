@@ -2,33 +2,33 @@
   <div id="app">
     <b-navbar toggleable="lg" type="dark" variant="info">
       <b-container>
-        <b-navbar-brand href="#">Site Nav</b-navbar-brand>
+        <b-navbar-brand to="#">Site Nav</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <b-nav-item href="#">Home</b-nav-item>
-            <b-nav-item href="#">About</b-nav-item>
-            <b-nav-item href="#">Voluteer</b-nav-item>
-            <b-nav-item href="#">Donate</b-nav-item>
-            <b-nav-item href="#">Resources</b-nav-item>
-            <b-nav-item href="#">Contact & FAQ</b-nav-item>
+            <b-nav-item to="#">Home</b-nav-item>
+            <b-nav-item to="#">About</b-nav-item>
+            <b-nav-item to="#">Voluteer</b-nav-item>
+            <b-nav-item to="#">Donate</b-nav-item>
+            <b-nav-item to="#">Resources</b-nav-item>
+            <b-nav-item to="#">Contact & FAQ</b-nav-item>
           </b-navbar-nav>
 
           <b-navbar-nav class="ml-auto">
             <b-nav-item-dropdown text="Opportunities" right>
-              <b-dropdown-item href="#">Division name</b-dropdown-item>
-              <b-dropdown-item href="#">Division name</b-dropdown-item>
-              <b-dropdown-item href="#">Division name</b-dropdown-item>
-              <b-dropdown-item href="#">Division name</b-dropdown-item>
+              <b-dropdown-item to="#">Division name</b-dropdown-item>
+              <b-dropdown-item to="#">Division name</b-dropdown-item>
+              <b-dropdown-item to="#">Division name</b-dropdown-item>
+              <b-dropdown-item to="#">Division name</b-dropdown-item>
             </b-nav-item-dropdown>
 
             <b-nav-item-dropdown right>
               <template v-slot:button-content>
                 <em>User</em>
               </template>
-              <b-dropdown-item href="#">Sign in</b-dropdown-item>
+              <b-dropdown-item to="#">Sign in</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
