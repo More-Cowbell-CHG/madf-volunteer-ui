@@ -14,19 +14,6 @@
 </template>
 
 <script>
-// Office
-// Name
-// Desc
-// Slot
-// Date/Time
-// Number of volunteers
-// Status
-// Pending
-// Active
-// Full
-// Deadline
-// Address
-// Waiver
 export default {
   props: {
     oppData: Object,

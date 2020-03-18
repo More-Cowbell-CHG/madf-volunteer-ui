@@ -17,7 +17,6 @@
 <script>
 import OpportunityListItem from "@/components/OpportunityListItem.vue";
 import opportunityList from "@/assets/opportunities.json";
-console.log("OPP LIST", opportunityList);
 export default {
   data: function() {
     return {
