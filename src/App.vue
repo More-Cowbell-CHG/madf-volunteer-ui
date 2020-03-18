@@ -10,25 +10,25 @@
           <b-navbar-nav>
             <b-nav-item to="/">Home</b-nav-item>
             <b-nav-item to="/about">About</b-nav-item>
-            <b-nav-item to="/opportunities">Voluteer</b-nav-item>
-            <b-nav-item to="#">Donate</b-nav-item>
-            <b-nav-item to="#">Resources</b-nav-item>
-            <b-nav-item to="#">Contact & FAQ</b-nav-item>
+            <b-nav-item to="/opportunities">Volunteer</b-nav-item>
+            <b-nav-item to="">Donate</b-nav-item>
+            <b-nav-item to="">Resources</b-nav-item>
+            <b-nav-item to="">Contact & FAQ</b-nav-item>
           </b-navbar-nav>
 
           <b-navbar-nav class="ml-auto">
             <b-nav-item-dropdown text="Opportunities" right>
-              <b-dropdown-item to="#">Division name</b-dropdown-item>
-              <b-dropdown-item to="#">Division name</b-dropdown-item>
-              <b-dropdown-item to="#">Division name</b-dropdown-item>
-              <b-dropdown-item to="#">Division name</b-dropdown-item>
+              <b-dropdown-item to="">Division name</b-dropdown-item>
+              <b-dropdown-item to="">Division name</b-dropdown-item>
+              <b-dropdown-item to="">Division name</b-dropdown-item>
+              <b-dropdown-item to="">Division name</b-dropdown-item>
             </b-nav-item-dropdown>
 
             <b-nav-item-dropdown right>
               <template v-slot:button-content>
                 <em>User</em>
               </template>
-              <b-dropdown-item to="#">Sign in</b-dropdown-item>
+              <b-dropdown-item to="">Sign in</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
@@ -50,13 +50,13 @@
             <router-link to="/opportunities">Volunteer</router-link>
           </b-col>
           <b-col sm="12" lg="2">
-            <router-link to="#">Donate</router-link>
+            <router-link to="">Donate</router-link>
           </b-col>
           <b-col sm="12" lg="2">
-            <router-link to="#">Resources</router-link>
+            <router-link to="">Resources</router-link>
           </b-col>
           <b-col sm="12" lg="2">
-            <router-link to="#">Contact & FAQ</router-link>
+            <router-link to="">Contact & FAQ</router-link>
           </b-col>
         </b-row>
       </b-container>
