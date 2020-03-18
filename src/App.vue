@@ -8,17 +8,26 @@
     <div class="bg-light">
       <b-container>
         <b-row>
-          <b-col>
-            <a href="#">Site footer</a>
+          <b-col class="text-left">
+            <a to="#">Site footer</a>
           </b-col>
-          <b-col>
-            <a href="#">Home</a>
+          <b-col sm="12" md="auto">
+            <a to="#">Home</a>
           </b-col>
-          <b-col>
-            <a href="#">About</a>
+          <b-col sm="12" md="auto">
+            <a to="#">About</a>
           </b-col>
-          <b-col>
-            <a href="#">Contact</a>
+          <b-col sm="12" md="auto">
+            <a to="#">Volunteer</a>
+          </b-col>
+          <b-col sm="12" md="auto">
+            <a to="#">Donate</a>
+          </b-col>
+          <b-col sm="12" md="auto">
+            <a to="#">Resources</a>
+          </b-col>
+          <b-col sm="12" md="auto">
+            <a to="#">Contact & FAQ</a>
           </b-col>
         </b-row>
       </b-container>
