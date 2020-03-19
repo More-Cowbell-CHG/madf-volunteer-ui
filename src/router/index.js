@@ -26,7 +26,12 @@ const routes = [
   {
     path: '/opportunity/:id',
     name: 'Opportunity',
-    component: () => import(/* webpackChunkName: "opportunites" */ '../views/Opportunity.vue')
+    component: () => import(/* webpackChunkName: "opportunity" */ '../views/Opportunity.vue')
+  },
+  {
+    path: '/create/opportunity',
+    name: 'Create New Opportunity',
+    component: () => import(/* webpackChunkName: "createOpportunity" */ '../views/CreateOpportunity.vue') 
   }
 ]
 

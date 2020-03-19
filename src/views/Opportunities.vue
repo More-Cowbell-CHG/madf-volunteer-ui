@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     opportunities: function() {
-      return opportunityList.filter(opp => {
+      return opportunityList.opportunities.filter(opp => {
         for (let i = 0; i < this.selectedOffices.length; i++) {
           if (opp.office === this.selectedOffices[i]) {
             return true;
@@ -45,9 +45,6 @@ export default {
   },
   components: {
     OpportunityListItem
-  },
-  methods: {
-    officeFilter: function() {}
   }
 };
 </script>
