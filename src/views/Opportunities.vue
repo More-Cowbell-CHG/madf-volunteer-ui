@@ -35,9 +35,7 @@ export default {
   computed: {
     opportunities: function() {
       return opportunityList.filter(opp => {
-        console.log("OPP", opp);
         for (let i = 0; i < this.selectedOffices.length; i++) {
-          console.log("this.selectedOffices[i]", this.selectedOffices[i]);
           if (opp.office === this.selectedOffices[i]) {
             return true;
           }
