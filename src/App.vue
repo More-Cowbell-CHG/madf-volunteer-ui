@@ -13,7 +13,6 @@
     </b-container>
     <b-navbar toggleable="lg" variant="faded" type="light">
       <b-container>
-        <!-- <b-navbar-brand href="#"></b-navbar-brand> -->
         <b-navbar-toggle class="ml-auto" target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
