@@ -23,7 +23,7 @@
             <b-nav-item to="">Partners</b-nav-item>
             <b-nav-item to="/about">About</b-nav-item>
             <b-nav-item to="">Contact</b-nav-item>
-            <b-nav-item to="">Blog</b-nav-item>
+            <b-nav-item href="https://makingadifferencefdn.org/blog/" target="_blank">Blog</b-nav-item>
             <b-nav-item to="">Donate</b-nav-item>
           </b-navbar-nav>
 
@@ -66,7 +66,7 @@
             <router-link to="">Contact</router-link>
           </b-col>
           <b-col sm="12" lg="2">
-            <router-link to="">Blog</router-link>
+            <a href="https://makingadifferencefdn.org/blog/" target="_blank">Blog</a>
           </b-col>
           <b-col sm="12" lg="2">
             <router-link to="">Donate</router-link>
