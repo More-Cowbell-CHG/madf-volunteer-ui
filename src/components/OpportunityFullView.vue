@@ -36,7 +36,7 @@ import opportunityList from "@/assets/opportunities.json";
 export default {
   data: function() {
     return {
-      oppData: {},
+      oppData: undefined,
       waiverStatus: false
     };
   },
@@ -46,6 +46,7 @@ export default {
     if (!this.oppData.waiver) {
       this.waiverStatus = true;
     }
+    console.log("OPPDATA", this.oppData);
   },
   components: {},
   methods: {
