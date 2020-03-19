@@ -45,9 +45,6 @@ export default {
   },
   components: {
     OpportunityListItem
-  },
-  methods: {
-    officeFilter: function() {}
   }
 };
 </script>
