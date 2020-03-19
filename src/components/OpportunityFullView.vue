@@ -26,7 +26,7 @@
           name="checkbox-1"
         >I acknowledge I have read and understand the waiver</b-form-checkbox>
       </template>
-      <b-button variant="success" :disabled="!waiverStatus">Sign Up</b-button>
+      <b-button @click="handleSignUp" variant="success" :disabled="!waiverStatus">Sign Up</b-button>
     </BJumbotron>
   </div>
 </template>
@@ -42,14 +42,21 @@ export default {
   },
   computed: {},
   mounted: function() {
-    console.log("Before find", this.$route.params);
     this.oppData = opportunityList.find(x => x._id === this.$route.params.id);
     if (!this.oppData.waiver) {
       this.waiverStatus = true;
     }
-    console.log("OPP DATA", this.oppData);
   },
-  components: {}
+  components: {},
+  methods: {
+    handleSignUp() {
+      if (this.waiverStatus) {
+        // need to add function to actually sign them up
+        console.log("You have signed up");
+        return true;
+      }
+    }
+  }
 };
 </script>
 
