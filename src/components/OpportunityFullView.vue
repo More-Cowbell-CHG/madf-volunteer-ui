@@ -34,17 +34,24 @@
 <script>
 import opportunityList from "@/assets/opportunities.json";
 export default {
+  props: {
+    oppData: {
+      type: Object,
+      required: false
+    }
+  },
   data: function() {
     return {
-      oppData: undefined,
       waiverStatus: false
     };
   },
   computed: {},
   mounted: function() {
-    this.oppData = opportunityList.find(x => x._id === this.$route.params.id);
-    if (!this.oppData.waiver) {
-      this.waiverStatus = true;
+    if (!this.oppData) {
+      this.oppData = opportunityList.find(x => x._id === this.$route.params.id);
+      if (!this.oppData.waiver) {
+        this.waiverStatus = true;
+      }
     }
   },
   components: {},
