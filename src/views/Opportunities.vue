@@ -2,6 +2,14 @@
   <div class="opportunities">
     <h1>List of Opportunities</h1>
     <BContainer>
+      <b-form-group label="Using options array:">
+        <b-form-checkbox-group
+          id="checkbox-group-1"
+          v-model="selectedOffices"
+          :options="options"
+          name="offices-1"
+        ></b-form-checkbox-group>
+      </b-form-group>
       <BListGroup>
         <OpportunityListItem
           v-for="(opp, linkKey) in opportunities"
@@ -20,7 +28,14 @@ import opportunityList from "@/assets/opportunities.json";
 export default {
   data: function() {
     return {
-      opportunities: opportunityList
+      opportunities: opportunityList,
+      selectedOffices: [], // Must be an array reference!
+      options: [
+        { text: "Salt Lake City", value: "SLC" },
+        { text: "Ft. Lauderdale", value: "FLD" },
+        { text: "Raleigh", value: "RNC" },
+        { text: "Michigan", value: "MIC" }
+      ]
     };
   },
   components: {
