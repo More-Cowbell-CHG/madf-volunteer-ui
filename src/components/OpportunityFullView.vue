@@ -46,14 +46,12 @@ export default {
     if (!this.oppData.waiver) {
       this.waiverStatus = true;
     }
-    console.log("OPPDATA", this.oppData);
   },
   components: {},
   methods: {
     handleSignUp() {
       if (this.waiverStatus) {
         // need to add function to actually sign them up
-        console.log("You have signed up");
         return true;
       }
     }
