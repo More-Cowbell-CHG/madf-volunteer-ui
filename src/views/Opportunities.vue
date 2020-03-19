@@ -28,8 +28,7 @@ import opportunityList from "@/assets/opportunities.json";
 export default {
   data: function() {
     return {
-      opportunities: opportunityList,
-      selectedOffices: [], // Must be an array reference!
+      selectedOffices: ["SLC", "FLD", "RNC", "MIC"], // Must be an array reference!
       options: [
         { text: "Salt Lake City", value: "SLC" },
         { text: "Ft. Lauderdale", value: "FLD" },
@@ -38,8 +37,24 @@ export default {
       ]
     };
   },
+  computed: {
+    opportunities: function() {
+      return opportunityList.filter(opp => {
+        console.log("OPP", opp);
+        for (let i = 0; i < this.selectedOffices.length; i++) {
+          console.log("this.selectedOffices[i]", this.selectedOffices[i]);
+          if (opp.office === this.selectedOffices[i]) {
+            return true;
+          }
+        }
+      });
+    }
+  },
   components: {
     OpportunityListItem
+  },
+  methods: {
+    officeFilter: function() {}
   }
 };
 </script>
