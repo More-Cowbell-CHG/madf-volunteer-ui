@@ -1,63 +1,175 @@
 <template>
-  <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-    <b-form-group
-      id="input-group-1"
-      label="Email address:"
-      label-for="input-1"
-      description="We'll never share your email with anyone else."
-    >
-      <b-form-input
-        id="input-1"
-        v-model="form.email"
-        type="email"
-        required
-        placeholder="Enter email"
-      ></b-form-input>
-    </b-form-group>
+  <b-container>
+    <b-form @submit.prevent="handleFormSubmit">
+      <b-form-group id="input-group-1" label="Title:" label-for="input-1">
+        <b-form-input id="input-1" v-model="form.title" type="text" required placeholder="Title"></b-form-input>
+      </b-form-group>
 
-    <b-form-group id="input-group-2" label="Your Name:" label-for="input-2">
-      <b-form-input id="input-2" v-model="form.name" required placeholder="Enter name"></b-form-input>
-    </b-form-group>
+      <b-form-group id="input-group-2" label="Description:" label-for="input-2">
+        <b-form-input
+          id="input-2"
+          v-model="form.description"
+          required
+          placeholder="Enter description"
+        ></b-form-input>
+      </b-form-group>
 
-    <b-form-group id="input-group-3" label="Food:" label-for="input-3">
-      <b-form-select id="input-3" v-model="form.food" :options="foods" required></b-form-select>
-    </b-form-group>
+      <b-form-group id="location-name-input" label="Location Name:" label-for="location-name">
+        <b-form-input type="text" id="location-name" v-model="form.location.name" required></b-form-input>
+      </b-form-group>
 
-    <b-form-group id="input-group-4">
-      <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
-        <b-form-checkbox value="me">Check me out</b-form-checkbox>
-        <b-form-checkbox value="that">Check that out</b-form-checkbox>
-      </b-form-checkbox-group>
-    </b-form-group>
+      <b-form-group
+        id="location-address-input"
+        label="Location Address:"
+        label-for="location-address"
+      >
+        <b-form-input
+          type="text"
+          id="location-address"
+          v-model="form.location.address"
+          placeholder="Street, City, State, Zipcode"
+          required
+        ></b-form-input>
+      </b-form-group>
 
-    <b-button type="submit" variant="primary">Submit</b-button>
-    <b-button type="reset" variant="danger">Reset</b-button>
-  </b-form>
+      <b-form-group id="input-group-3" label="Office:" label-for="input-3">
+        <b-form-select id="input-3" v-model="form.office" :options="officeLocations" required></b-form-select>
+      </b-form-group>
+
+      <b-form-group id="input-group-4" label-for="deadline-input" label="Signup Deadline">
+        <b-form-datepicker
+          value-as-date
+          id="deadline-input"
+          v-model="form.deadline.date"
+          class="mb-2"
+        ></b-form-datepicker>
+        <b-form-timepicker id="deadline-time-input" v-model="form.deadline.time" class="mb-2"></b-form-timepicker>
+      </b-form-group>
+
+      <b-form-group id="input-group-3" label="Waiver Text:" label-for="input-3">
+        <b-form-textarea
+          id="waiver-text"
+          placeholder="Waiver Info..."
+          rows="3"
+          max-rows="6"
+          v-model="form.waiver"
+        ></b-form-textarea>
+      </b-form-group>
+
+      <SlotFormSection
+        v-for="(slot, index) in form.slots"
+        :key="index"
+        :id="index"
+        :slotData.sync="slot"
+      />
+      <b-button-group>
+        <b-button @click="handleAddSlot" type="button" variant="success">Add Slot</b-button>
+        <b-button @click="handleRemoveSlot" type="button" variant="danger">Remove Slot</b-button>
+      </b-button-group>
+
+      <b-button type="submit" variant="primary">Submit</b-button>
+    </b-form>
+  </b-container>
 </template>
 
 <script>
-import opportunityList from "@/assets/opportunities.json";
+// import opportunityList from "@/assets/opportunities.json";
+// import axios from "axios";
+import SlotFormSection from "@/components/SlotFormSection.vue";
+
 export default {
   data: function() {
     return {
-      oppData: undefined,
-      waiverStatus: false
+      form: {
+        title: "",
+        description: "",
+        office: "",
+        location: {
+          name: "",
+          address: ""
+        },
+        status: "pending",
+        deadline: {
+          date: new Date(),
+          time: ""
+        },
+        waiver: null,
+        slots: [
+          {
+            date: "",
+            time: "",
+            limit: 5,
+            volunteers: []
+          }
+        ]
+      },
+      officeLocations: [
+        { value: null, text: "Please select a location" },
+        { text: "Salt Lake City", value: "SLC", tz: "-7" },
+        { text: "Ft. Lauderdale", value: "FLD", tz: "-5" },
+        { text: "Raleigh", value: "RNC", tz: "-5" },
+        { text: "Michigan", value: "MIC", tz: "-5" }
+      ]
     };
   },
   computed: {},
-  mounted: function() {
-    this.oppData = opportunityList.find(x => x._id === this.$route.params.id);
-    if (!this.oppData.waiver) {
-      this.waiverStatus = true;
-    }
+  mounted: function() {},
+  components: {
+    SlotFormSection
   },
-  components: {},
   methods: {
-    handleSignUp() {
-      if (this.waiverStatus) {
-        // need to add function to actually sign them up
-        return true;
-      }
+    handleAddSlot() {
+      this.form.slots.push({
+        date: new Date(),
+        time: "",
+        limit: 5,
+        volunteers: []
+      });
+    },
+    handleRemoveSlot() {
+      this.form.slots.pop();
+    },
+    handleFormSubmit() {
+      const deadlineLong = this.buildDate(
+        this.form.deadline.date,
+        this.form.deadline.time
+      );
+      const newSlots = this.form.slots.map(slot => {
+        return {
+          start: this.buildDate(slot.date, slot.time),
+          limit: slot.limit,
+          volunteers: slot.volunteers
+        };
+      });
+
+      const submitData = this.form;
+
+      submitData.deadline = deadlineLong;
+      submitData.slots = newSlots;
+
+      // ****** TO DO: Need to hook up actual submission to DB using axios
+      // **** Below is a generic axios call, change method, url, and data sent
+
+      // axios
+      //   .get("https://api.coindesk.com/v1/bpi/currentprice.json")
+      //   .then(response => {
+      //     console.log("Response: ", response);
+      //   });
+    },
+    buildDate(dateObj, time) {
+      console.log("DATE OBJ", dateObj);
+      const timeSplit = time.split(":");
+      const year = dateObj.getUTCFullYear();
+      const month = dateObj.getUTCMonth();
+      const day = dateObj.getUTCDate();
+      const newDate = new Date();
+
+      newDate.setFullYear(year);
+      newDate.setMonth(month);
+      newDate.setDate(day);
+      newDate.setHours(timeSplit[0], timeSplit[1], 0, 0);
+      console.log("NEW DATE", newDate);
+      return newDate.getTime();
     }
   }
 };

@@ -18,7 +18,7 @@
     {
       "_id": "234rfnfd98sdf",
       "title": "Help Homeless",
-      "office": "Ft Lauderdale",
+      "office": "FLD",
       "location": {
         "name": "CHG Headquarters",
         "address": "666 State St, Salt Lake City, UT 84111",
@@ -33,7 +33,7 @@
     {
       "_id": "2349fgs8nfd98sdf",
       "title": "Donate Blood",
-      "office": "SLC",
+      "office": "MIC",
       "location": {
         "name": "CHG Headquarters",
         "address": "123 Main St, Salt Lake City, UT 84111",
