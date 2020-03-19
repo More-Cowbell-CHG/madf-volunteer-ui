@@ -11,12 +11,7 @@
         ></b-form-checkbox-group>
       </b-form-group>
       <BListGroup>
-        <OpportunityListItem
-          v-for="(opp, linkKey) in opportunities"
-          :key="opp.name"
-          :linkKey="linkKey"
-          v-bind:oppData="opp"
-        />
+        <OpportunityListItem v-for="(opp) in opportunities" :key="opp._id" v-bind:oppData="opp" />
       </BListGroup>
     </BContainer>
   </div>
@@ -24,7 +19,7 @@
 
 <script>
 import OpportunityListItem from "@/components/OpportunityListItem.vue";
-import opportunityList from "@/assets/opportunities.json";
+import opportunityList from "@/assets/opportunitiesGet.json";
 export default {
   data: function() {
     return {
