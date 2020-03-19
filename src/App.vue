@@ -18,11 +18,13 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
             <b-nav-item to="/">Home</b-nav-item>
+            <b-nav-item to="">Medical missions</b-nav-item>
+            <b-nav-item to="/opportunities">Opportunities</b-nav-item>
+            <b-nav-item to="">Partners</b-nav-item>
             <b-nav-item to="/about">About</b-nav-item>
-            <b-nav-item to="/opportunities">Volunteer</b-nav-item>
+            <b-nav-item to="">Contact</b-nav-item>
+            <b-nav-item to="">Blog</b-nav-item>
             <b-nav-item to="">Donate</b-nav-item>
-            <b-nav-item to="">Resources</b-nav-item>
-            <b-nav-item to="">Contact & FAQ</b-nav-item>
           </b-navbar-nav>
 
           <b-navbar-nav class="ml-auto">
@@ -44,34 +46,44 @@
       </b-container>
     </b-navbar>
 
-    <router-view />
+    <div class="vh">
+      <router-view />
+    </div>
 
-    <div class="site-footer position-absolute d-flex justify-content-center align-items-center w-100 bg-light">
+    <div class="site-footer d-flex justify-content-center align-items-center w-100 bg-light">
       <b-container>
         <b-row>
           <b-col sm="12" lg="2">
-            <router-link to="/">Home</router-link>
+            <router-link to="/">Medical missions</router-link>
+          </b-col>
+          <b-col sm="12" lg="2">
+            <router-link to="">Partners</router-link>
           </b-col>
           <b-col sm="12" lg="2">
             <router-link to="/about">About</router-link>
           </b-col>
           <b-col sm="12" lg="2">
-            <router-link to="/opportunities">Volunteer</router-link>
+            <router-link to="">Contact</router-link>
+          </b-col>
+          <b-col sm="12" lg="2">
+            <router-link to="">Blog</router-link>
           </b-col>
           <b-col sm="12" lg="2">
             <router-link to="">Donate</router-link>
-          </b-col>
-          <b-col sm="12" lg="2">
-            <router-link to="">Resources</router-link>
-          </b-col>
-          <b-col sm="12" lg="2">
-            <router-link to="">Contact & FAQ</router-link>
           </b-col>
         </b-row>
       </b-container>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    document.querySelector('.vh').style.minHeight = window.innerHeight - 200 + 'px';
+  }
+};
+</script>
 
 <style lang="scss">
 #app {
