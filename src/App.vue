@@ -1,10 +1,20 @@
 <template>
   <div id="app">
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-container>
+      <b-row>
+        <b-col>
+          <div class="mt-2">
+            <router-link to="/">
+              <b-img src="./assets/images/madf.png" fluid alt="Make a Difference Foundation"></b-img>
+            </router-link>
+          </div>
+        </b-col>
+      </b-row>
+    </b-container>
+    <b-navbar toggleable="lg" variant="faded" type="light">
       <b-container>
-        <b-navbar-brand to="/">Site logo</b-navbar-brand>
-
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        <!-- <b-navbar-brand href="#"></b-navbar-brand> -->
+        <b-navbar-toggle class="ml-auto" target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
