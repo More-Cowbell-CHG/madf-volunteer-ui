@@ -47,11 +47,8 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import Vuelidate from 'vuelidate';
 import { required, sameAs, minLength, email, helpers } from 'vuelidate/lib/validators';
 const alpha = helpers.regex('alpha', /^[A-Za-z\s]{1,}[.-]{0,1}[A-Za-z\s]{0,}$/);
-Vue.use(Vuelidate);
 
 export default {
   data() {
