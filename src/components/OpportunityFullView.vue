@@ -26,7 +26,8 @@
           name="checkbox-1"
         >I acknowledge I have read and understand the waiver</b-form-checkbox>
       </template>
-      <b-button @click="handleSignUp" variant="success" :disabled="!waiverStatus">Sign Up</b-button>
+      <b-button class="mx-1" v-if="computedOppData.status === 'Pending' && isAdmin" @click="handleApproval" variant="success">Approve</b-button>
+      <b-button class="mx-1" @click="handleSignUp" variant="success" :disabled="!waiverStatus">Sign Up</b-button>
     </BJumbotron>
   </div>
 </template>
@@ -41,13 +42,16 @@ export default {
     }
   },
   data: function() {
-    return {};
+    return {
+      isAdmin: true
+    };
   },
   computed: {
     computedOppData: function() {
       if (!this.oppData) {
         return opportunityList.find(x => x._id === this.$route.params.id);
       }
+      console.log(this.oppData);
       return this.oppData;
     },
     waiverStatus: function() {
@@ -72,6 +76,9 @@ export default {
         // need to add function to actually sign them up
         return true;
       }
+    },
+    handleApproval() {
+      // ...
     }
   }
 };
