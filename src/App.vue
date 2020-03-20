@@ -39,7 +39,7 @@
               <template v-slot:button-content>
                 <em>User</em>
               </template>
-              <b-dropdown-item to>Sign in</b-dropdown-item>
+              <b-dropdown-item to="/sign-in">Sign in</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
