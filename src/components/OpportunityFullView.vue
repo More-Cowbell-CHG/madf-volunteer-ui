@@ -41,6 +41,13 @@
       </div>
       <h6>Sign Up Deadline: {{ new Date(oppData.deadline).toDateString() }}</h6>
     </div>
+    <b-button
+      class="mx-1"
+      v-if="computedOppData.status === 'Pending' && isAdmin"
+      @click="handleApproval"
+      variant="success"
+    >Approve</b-button>
+    <b-button class="mx-1" @click="handleSignUp" variant="success" :disabled="!waiverStatus">Sign Up</b-button>
   </BJumbotron>
 </template>
 
@@ -56,7 +63,8 @@ export default {
   },
   data: function() {
     return {
-      waiverStatus: false
+      waiverStatus: false,
+      isAdmin: true
     };
   },
   computed: {
@@ -80,6 +88,9 @@ export default {
         // need to add function to actually sign them up
         return true;
       }
+    },
+    handleApproval() {
+      // ...
     }
   }
 };
