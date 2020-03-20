@@ -17,24 +17,13 @@
 
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
-            <b-nav-item to="/">Home</b-nav-item>
-            <b-nav-item to>Medical missions</b-nav-item>
-            <b-nav-item to="/opportunities">Opportunities</b-nav-item>
+            <b-nav-item to="/opportunities">Home</b-nav-item>
             <b-nav-item to="/create/opportunity">Create</b-nav-item>
-            <b-nav-item to="/about">About</b-nav-item>
-            <b-nav-item to>Contact</b-nav-item>
+
             <b-nav-item href="https://makingadifferencefdn.org/blog/" target="_blank">Blog</b-nav-item>
-            <b-nav-item to>Donate</b-nav-item>
           </b-navbar-nav>
 
           <b-navbar-nav class="ml-auto">
-            <b-nav-item-dropdown text="Opportunities" right>
-              <b-dropdown-item to>Division name</b-dropdown-item>
-              <b-dropdown-item to>Division name</b-dropdown-item>
-              <b-dropdown-item to>Division name</b-dropdown-item>
-              <b-dropdown-item to>Division name</b-dropdown-item>
-            </b-nav-item-dropdown>
-
             <b-nav-item-dropdown right>
               <template v-slot:button-content>
                 <em>User</em>
@@ -53,23 +42,11 @@
     <div class="site-footer d-flex justify-content-center align-items-center w-100 bg-light">
       <b-container>
         <b-row>
-          <b-col sm="12" lg="2">
-            <router-link to="/">Medical missions</router-link>
-          </b-col>
-          <b-col sm="12" lg="2">
-            <router-link to>Partners</router-link>
-          </b-col>
-          <b-col sm="12" lg="2">
+          <b-col sm="12" lg="6">
             <router-link to="/about">About</router-link>
           </b-col>
-          <b-col sm="12" lg="2">
-            <router-link to>Contact</router-link>
-          </b-col>
-          <b-col sm="12" lg="2">
+          <b-col sm="12" lg="6">
             <a href="https://makingadifferencefdn.org/blog/" target="_blank">Blog</a>
-          </b-col>
-          <b-col sm="12" lg="2">
-            <router-link to>Donate</router-link>
           </b-col>
         </b-row>
       </b-container>

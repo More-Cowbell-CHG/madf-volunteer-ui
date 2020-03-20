@@ -39,7 +39,6 @@ export default new Vuex.Store({
           reqBody
           )
           .then(response => {
-            console.log("LOGIN RESPONSE", response.data)
             context.commit("SET_USER", response.data.user)
             context.commit("SET_USER_TOKEN", response.data.token)
             router.push("/opportunities");
