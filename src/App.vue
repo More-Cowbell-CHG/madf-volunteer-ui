@@ -39,7 +39,11 @@
               <template v-slot:button-content>
                 <em>User</em>
               </template>
-              <b-dropdown-item to="/sign-in">Sign in</b-dropdown-item>
+              <b-dropdown-item to="/sign-in" v-if="!isLoggedIn">Sign in</b-dropdown-item>
+              <template v-if="isLoggedIn">
+                <b-dropdown-item :to="`/users/${userId}`">Profile</b-dropdown-item>
+                <b-dropdown-item to="/sign-in" @click="logout">Log out</b-dropdown-item>
+              </template>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
@@ -79,6 +83,21 @@
 
 <script>
 export default {
+  data: function() {
+    return {
+      userId: localStorage.getItem("token") ? localStorage.getItem("token") : '',
+    }
+  },
+  methods: {
+    logout() {
+     this.$store.dispatch('logout');
+    }
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
+    }
+  },
   mounted() {
     document.querySelector(".vh").style.minHeight =
       window.innerHeight - 200 + "px";

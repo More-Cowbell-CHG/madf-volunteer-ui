@@ -10,7 +10,7 @@ export default new Vuex.Store({
     user: {
       token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVlNzNjZWM4M2ZkZmRiMzUyN2IyYTdlZSIsIm5hbWUiOiJOaWNrIE5lbHNvbiIsImVtYWlsIjoibmlja25sc25AZ21haWwuY29tIiwicm9sZXMiOlsidm9sdW50ZWVyIiwiY2hhbXBpb24iLCJhZG1pbiJdfSwiaWF0IjoxNTg0NjQ4NzU3fQ.vpf2FY6lgSiaPk9yik29_-Fl3QcmSKfzP8vFL0dsTPs"
     },
-    
+    isLoggedIn: !!localStorage.getItem("token"),
   },
   mutations: {
     SET_USER_TOKEN(state, payload) {
@@ -18,6 +18,12 @@ export default new Vuex.Store({
     },
     SET_USER(state, payload) {
       state.user = payload.user
+    },
+    LOGIN_SUCCESS (state) {
+      state.isLoggedIn = true;
+    },
+    LOGOUT(state) {
+      state.isLoggedIn = false;
     }
   },
   actions: {
@@ -41,7 +47,13 @@ export default new Vuex.Store({
           .then(response => {
             context.commit("SET_USER", response.data)
             router.push("/opportunities");
+            localStorage.setItem("token", response.data.user._id);
+            context.commit("LOGIN_SUCCESS");
         });
+    },
+    logout(context) {
+      localStorage.removeItem("token");
+      context.commit("LOGOUT");
     }
   },
   modules: {
@@ -54,5 +66,8 @@ export default new Vuex.Store({
         headers: { Authorization: `Bearer ${state.user.token}` }
       };
     },
+    isLoggedIn: state => {
+      return state.isLoggedIn
+     }
   },
 })
