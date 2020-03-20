@@ -20,7 +20,7 @@
         "lng": -111.9165294
       }
     },
-    "status": "open",
+    "status": "closed",
     "deadline": 1584566132326,
     "waiver": "You have to agree to this",
     "slots": [
@@ -109,7 +109,52 @@
         "lng": -111.9165294
       }
     },
-    "status": "open",
+    "status": "pending",
+    "deadline": 1584566132326,
+    "waiver": "You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this \n\nYou have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this \n\nYou have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this ",
+    "slots": [
+      {
+        "start": 1584566132326,
+        "limit": 5,
+        "volunteers": [
+          {
+            "id": "3948jfsd",
+            "name": "Robert J. Walker"
+          },
+          {
+            "id": "3948jfsd3rf",
+            "name": "Brian Barrow"
+          },
+          {
+            "id": "3948jfsd234fgsf",
+            "name": "Chris Dixon"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "234aggs8nfd98sdf",
+    "created": {
+      "user": "3948jfsd",
+      "time": 1584566132326
+    },
+    "lastModified": {
+      "user": "3948jfsd",
+      "time": 1584566132326
+    },
+    "title": "Plant a tree",
+    "description": "Read the title",
+    "office": "SLC",
+    "location": {
+      "name": "CHG Headquarters",
+      "address": "666 State St, Salt Lake City, UT 84111",
+      "latlng": {
+        "lat": 40.6195957,
+        "lng": -111.9165294
+      }
+    },
+    "status": "archived",
     "deadline": 1584566132326,
     "waiver": "You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this \n\nYou have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this \n\nYou have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this You have to agree to this ",
     "slots": [
