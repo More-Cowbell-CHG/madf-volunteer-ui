@@ -73,27 +73,36 @@
 </template>
 
 <script>
-// import opportunityList from "@/assets/opportunities.json";
 // import axios from "axios";
 import SlotFormSection from "@/components/SlotFormSection.vue";
 
 export default {
+  props: {
+    editMode: {
+      type: Boolean,
+      required: false
+    },
+    editFormData: {
+      type: Object,
+      required: false
+    }
+  },
   data: function() {
     return {
       form: {
-        title: "",
-        description: "",
-        office: "",
+        title: this.editFormData.title || "",
+        description: this.editFormData.description || "",
+        office: this.editFormData.office || "",
         location: {
-          name: "",
-          address: ""
+          name: this.editFormData.location.name || "",
+          address: this.editFormData.location.address || ""
         },
-        status: "pending",
+        status: this.editFormData.status || "pending",
         deadline: {
           date: new Date(),
           time: ""
         },
-        waiver: null,
+        waiver: this.editFormData.waiver || null,
         slots: [
           {
             date: "",
@@ -113,7 +122,26 @@ export default {
     };
   },
   computed: {},
-  mounted: function() {},
+  mounted: function() {
+    if (this.editMode && this.editFormData) {
+      const editDeadline = new Date(this.editFormData.deadline);
+      const editModeSlots = this.editFormData.slots.map(slot => {
+        console.log(slot.start);
+        const slotDate = new Date(slot.start);
+        return {
+          date: slotDate,
+          time: `${slotDate.getHours()}:${slotDate.getMinutes()}:00`,
+          limit: slot.limit,
+          volunteers: slot.volunteers
+        };
+      });
+      this.form.slots = editModeSlots;
+      this.form.deadline = {
+        date: editDeadline,
+        time: `${editDeadline.getHours()}:${editDeadline.getMinutes()}:00`
+      };
+    }
+  },
   components: {
     SlotFormSection
   },
@@ -149,6 +177,7 @@ export default {
 
       // ****** TO DO: Need to hook up actual submission to DB using axios
       // **** Below is a generic axios call, change method, url, and data sent
+      // ** MAKE SURE TO ADD conditional if it is a put vs a post
 
       // axios
       //   .get("https://api.coindesk.com/v1/bpi/currentprice.json")
@@ -157,7 +186,6 @@ export default {
       //   });
     },
     buildDate(dateObj, time) {
-      console.log("DATE OBJ", dateObj);
       const timeSplit = time.split(":");
       const year = dateObj.getUTCFullYear();
       const month = dateObj.getUTCMonth();
@@ -168,7 +196,6 @@ export default {
       newDate.setMonth(month);
       newDate.setDate(day);
       newDate.setHours(timeSplit[0], timeSplit[1], 0, 0);
-      console.log("NEW DATE", newDate);
       return newDate.getTime();
     }
   }

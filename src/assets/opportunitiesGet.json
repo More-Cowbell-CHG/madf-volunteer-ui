@@ -2,7 +2,7 @@
   "opportunities": [
     {
       "_id": "23498nfd98sdf",
-      "title": "Help Puppies",
+      "title": "Donate Blood",
       "office": "SLC",
       "location": {
         "name": "CHG Headquarters",
@@ -12,12 +12,12 @@
           "lng": -111.9165294
         }
       },
-      "status": "Open",
+      "status": "closed",
       "openSlots": 24
     },
     {
       "_id": "234rfnfd98sdf",
-      "title": "Help Homeless",
+      "title": "Help Puppies",
       "office": "FLD",
       "location": {
         "name": "CHG Headquarters",
@@ -27,12 +27,12 @@
           "lng": -111.9165294
         }
       },
-      "status": "Open",
+      "status": "open",
       "openSlots": 12
     },
     {
       "_id": "2349fgs8nfd98sdf",
-      "title": "Donate Blood",
+      "title": "Help Homeless",
       "office": "MIC",
       "location": {
         "name": "CHG Headquarters",
@@ -42,7 +42,22 @@
           "lng": -111.9165294
         }
       },
-      "status": "Open",
+      "status": "pending",
+      "openSlots": 100
+    },
+    {
+      "_id": "234aggs8nfd98sdf",
+      "title": "Plant a tree",
+      "office": "SLC",
+      "location": {
+        "name": "CHG Headquarters",
+        "address": "123 Main St, Salt Lake City, UT 84111",
+        "latlng": {
+          "lat": 40.6195957,
+          "lng": -111.9165294
+        }
+      },
+      "status": "archived",
       "openSlots": 100
     }
   ]

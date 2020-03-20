@@ -29,9 +29,24 @@ const routes = [
     component: () => import(/* webpackChunkName: "opportunity" */ '../views/Opportunity.vue')
   },
   {
+    path: '/edit/opportunity/:id',
+    name: 'Edit Opportunity',
+    component: () => import(/* webpackChunkName: "editOpportunity" */ '../views/EditOpportunity.vue')
+  },
+  {
     path: '/create/opportunity',
     name: 'Create New Opportunity',
     component: () => import(/* webpackChunkName: "createOpportunity" */ '../views/CreateOpportunity.vue') 
+  },
+  {
+    path: '/users',
+    name: 'Users',
+    component: () => import(/* webpackChunkName: "users" */ '../views/Users.vue') 
+  },
+  {
+    path: '/users/:id',
+    name: 'User View',
+    component: () => import(/* webpackChunkName: "user" */ '../views/UserEdit.vue') 
   },
   {
     path: '/sign-in',
