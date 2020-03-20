@@ -2,21 +2,26 @@
   <div class="opportunities">
     <h1>List of Opportunities</h1>
     <BContainer>
-      <b-button v-if="isAdmin" v-on:click="filterByStatus = false" class="filterButton">Office</b-button>
-      <b-button v-if="isAdmin" v-on:click="filterByStatus = true" class="filterButton">Status</b-button>
-      <b-form-group :label="`Filter By ${filterByStatus ? 'Status' : 'Office'}:`">
+      <b-button
+        v-if="isAdmin"
+        v-on:click="toggleFilterByStatus"
+        class="filterButton"
+      >{{ filterByText }}</b-button>
+
+      <b-form-group>
         <b-form-checkbox-group
-          id="checkbox-group-1"
-          v-model="selectedOffices"
-          :options="options"
-          name="offices-1"
-        ></b-form-checkbox-group>
-        <b-form-checkbox-group
-          v-if="isAdmin"
+          v-if="filterByStatus"
           id="checkbox-group-2"
           v-model="selectedStatuses"
           :options="statusOptions"
           name="statuses-1"
+        ></b-form-checkbox-group>
+        <b-form-checkbox-group
+          v-else
+          id="checkbox-group-1"
+          v-model="selectedOffices"
+          :options="options"
+          name="offices-1"
         ></b-form-checkbox-group>
       </b-form-group>
       <BListGroup>
@@ -69,10 +74,20 @@ export default {
           }
         });
       }
+    },
+    filterByText: function() {
+      return this.filterByStatus
+        ? "Change to Filter By Office"
+        : "Change to Filter By Status";
     }
   },
   components: {
     OpportunityListItem
+  },
+  methods: {
+    toggleFilterByStatus() {
+      this.filterByStatus = !this.filterByStatus;
+    }
   }
 };
 </script>
