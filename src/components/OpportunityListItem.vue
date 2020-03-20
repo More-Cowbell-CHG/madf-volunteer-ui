@@ -7,7 +7,7 @@
       <!-- <small class="deadline">{{ oppData.deadline }}</small> -->
     </div>
 
-    <!-- <p class="mb-1">{{ oppData.description }}</p> -->
+    <p class="mb-1">{{ oppData.description }}</p>
 
     <small>Donec id elit non mi porta.</small>
   </b-list-group-item>

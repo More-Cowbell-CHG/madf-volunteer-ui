@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import axios from "axios";
+import { mapGetters } from "vuex";
 import opportunityList from "@/assets/opportunities.json";
 import OpportunityFullView from "@/components/OpportunityFullView";
 
@@ -24,6 +26,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(["authHeader"]),
     isChampion: function() {
       // This will have logic checking the user info that comes back from DB
       return true;
@@ -40,6 +43,17 @@ export default {
     handleDelete() {
       // Delete call to db via axios
     }
+  },
+  mounted: function() {
+    axios
+      .get(
+        `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity/${this.$route.params.id}`,
+        this.authHeader
+      )
+      .then(response => {
+        console.log("Response: ", response);
+        //this.opportunitiesList = response   /// ?????
+      });
   }
 };
 </script>

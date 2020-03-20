@@ -32,11 +32,14 @@
 </template>
 
 <script>
+import axios from "axios";
+import { mapGetters } from "vuex";
 import OpportunityListItem from "@/components/OpportunityListItem.vue";
 import opportunityList from "@/assets/opportunitiesGet.json";
 export default {
   data: function() {
     return {
+      opportunityList: undefined,
       isAdmin: true,
       filterByStatus: false,
       selectedOffices: ["SLC", "FLD", "RNC", "MIC"], // Must be an array reference!
@@ -56,6 +59,7 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(["authHeader"]),
     opportunities: function() {
       if (this.filterByStatus) {
         return opportunityList.opportunities.filter(opp => {
@@ -88,6 +92,17 @@ export default {
     toggleFilterByStatus() {
       this.filterByStatus = !this.filterByStatus;
     }
+  },
+  mounted: function() {
+    axios
+      .get(
+        "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity",
+        this.authHeader
+      )
+      .then(response => {
+        console.log("Response: ", response);
+        //this.opportunitiesList = response.data.opportunities   /// ?????
+      });
   }
 };
 </script>
