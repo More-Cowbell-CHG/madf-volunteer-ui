@@ -75,7 +75,6 @@ export default {
       } else {
         adminChampArray = opportunityList.opportunities;
       }
-      console.log("CHAMPARRAY", adminChampArray);
       if (this.filterByStatus) {
         return adminChampArray.filter(opp => {
           for (let i = 0; i < this.selectedStatuses.length; i++) {
@@ -115,7 +114,6 @@ export default {
         this.authHeader
       )
       .then(response => {
-        console.log("Response: ", response);
         this.opportunityList = response.data.opportunities; /// ?????
       });
   }
