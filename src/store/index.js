@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios';
+import router from '@/router'
 
 Vue.use(Vuex)
 
@@ -11,8 +13,36 @@ export default new Vuex.Store({
     
   },
   mutations: {
+    SET_USER_TOKEN(state, payload) {
+      state.user.token = payload.token
+    },
+    SET_USER(state, payload) {
+      state.user = payload.user
+    }
   },
   actions: {
+    handleCreateAccount(context, reqBody) {
+      axios
+        .post(
+          "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/user",
+          reqBody
+        )
+        .then(response => {
+          context.commit("SET_USER_TOKEN", response.data)
+          router.push("/opportunities");
+        });
+      },
+      handleLogin(context, reqBody) {
+        axios
+        .post(
+          "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/login",
+          reqBody
+          )
+          .then(response => {
+            context.commit("SET_USER", response.data)
+            router.push("/opportunities");
+        });
+    }
   },
   modules: {
   },
