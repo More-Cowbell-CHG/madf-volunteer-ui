@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "ewr6516sdf",
+    "email": "robert.walker@chghealthcare.com",
+    "name": "Robert J. Walker",
+    "roles": [
+      "volunteer",
+      "champion",
+      "admin"
+    ],
+    "salt": "56345d65f1wef",
+    "passwordHash": "345r2w1df6w"
+  },
+  {
+    "_id": "ers65df981sdv",
+    "email": "brian.barrow@chghealthcare.com",
+    "name": "Brian Barrow",
+    "roles": [
+      "volunteer",
+      "champion",
+      "admin"
+    ],
+    "salt": "sdf651sdf",
+    "passwordHash": "sdf54sd9f81sdfsdeg"
+  },
+  {
+    "_id": "fwer56sdf",
+    "email": "christopher.dixon@chghealthcare.com",
+    "name": "Chris Dixon",
+    "roles": [
+      "volunteer",
+      "champion",
+      "admin"
+    ],
+    "salt": "SDF65sfd651sdf",
+    "passwordHash": "5sd98rwe1fsdf"
+  }
+]
