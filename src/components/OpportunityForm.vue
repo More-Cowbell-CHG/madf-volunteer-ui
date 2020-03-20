@@ -73,7 +73,7 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 import SlotFormSection from "@/components/SlotFormSection.vue";
 
 export default {
@@ -90,19 +90,19 @@ export default {
   data: function() {
     return {
       form: {
-        title: this.editFormData.title || "",
-        description: this.editFormData.description || "",
-        office: this.editFormData.office || "",
+        title: "",
+        description: "",
+        office: "",
         location: {
-          name: this.editFormData.location.name || "",
-          address: this.editFormData.location.address || ""
+          name: "",
+          address: ""
         },
-        status: this.editFormData.status || "pending",
+        status: "pending",
         deadline: {
           date: new Date(),
           time: ""
         },
-        waiver: this.editFormData.waiver || null,
+        waiver: null,
         slots: [
           {
             date: "",
@@ -124,9 +124,9 @@ export default {
   computed: {},
   mounted: function() {
     if (this.editMode && this.editFormData) {
+      this.form = this.editFormData;
       const editDeadline = new Date(this.editFormData.deadline);
       const editModeSlots = this.editFormData.slots.map(slot => {
-        console.log(slot.start);
         const slotDate = new Date(slot.start);
         return {
           date: slotDate,
@@ -179,11 +179,27 @@ export default {
       // **** Below is a generic axios call, change method, url, and data sent
       // ** MAKE SURE TO ADD conditional if it is a put vs a post
 
-      // axios
-      //   .get("https://api.coindesk.com/v1/bpi/currentprice.json")
-      //   .then(response => {
-      //     console.log("Response: ", response);
-      //   });
+      if (this.editMode) {
+        axios
+          .pu(
+            "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity",
+            this.authHeader,
+            submitData
+          )
+          .then(response => {
+            this.$router.push(`/opportunity/${response.data._id}`);
+          });
+      } else {
+        axios
+          .post(
+            "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity",
+            this.authHeader,
+            submitData
+          )
+          .then(response => {
+            this.$router.push(`/opportunity/${response.data._id}`);
+          });
+      }
     },
     buildDate(dateObj, time) {
       const timeSplit = time.split(":");

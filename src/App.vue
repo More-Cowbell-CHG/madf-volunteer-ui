@@ -18,6 +18,8 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav>
             <b-nav-item to="/opportunities">Home</b-nav-item>
+            <b-nav-item to="/create/opportunity">Create</b-nav-item>
+
             <b-nav-item href="https://makingadifferencefdn.org/blog/" target="_blank">Blog</b-nav-item>
           </b-navbar-nav>
 

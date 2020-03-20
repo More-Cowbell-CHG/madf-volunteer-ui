@@ -53,7 +53,7 @@
 
 <script>
 // import OpportunityForm from "@/components/OpportunityForm.vue";
-
+import { mapGetters } from "vuex";
 export default {
   props: {
     oppData: {
@@ -63,11 +63,11 @@ export default {
   },
   data: function() {
     return {
-      waiverStatus: false,
-      isAdmin: true
+      waiverStatus: false
     };
   },
   computed: {
+    ...mapGetters(["isAdmin"]),
     slotsToShow: function() {
       return this.oppData.slots.filter(slot => slot.limit > 0);
     }

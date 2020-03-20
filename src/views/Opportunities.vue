@@ -32,12 +32,14 @@
 </template>
 
 <script>
+import axios from "axios";
+import { mapGetters } from "vuex";
 import OpportunityListItem from "@/components/OpportunityListItem.vue";
 import opportunityList from "@/assets/opportunitiesGet.json";
 export default {
   data: function() {
     return {
-      isAdmin: true,
+      opportunityList: undefined,
       filterByStatus: false,
       selectedOffices: ["SLC", "FLD", "RNC", "MIC"], // Must be an array reference!
       options: [
@@ -46,19 +48,35 @@ export default {
         { text: "Raleigh", value: "RNC" },
         { text: "Michigan", value: "MIC" }
       ],
-      selectedStatuses: ["pending", "open", "closed", "archived"],
-      statusOptions: [
-        { text: "pending", value: "pending" },
-        { text: "open", value: "open" },
-        { text: "closed", value: "closed" },
-        { text: "archived", value: "archived" }
-      ]
+      selectedStatuses: ["pending", "open", "closed", "archived"]
     };
   },
   computed: {
+    ...mapGetters(["authHeader", "isAdmin", "isChampion"]),
+    statusOptions: function() {
+      if (this.isAdmin || this.isChampion) {
+        return [
+          { text: "pending", value: "pending" },
+          { text: "open", value: "open" },
+          { text: "closed", value: "closed" },
+          { text: "archived", value: "archived" }
+        ];
+      } else {
+        return [{ text: "open", value: "open" }];
+      }
+    },
+
     opportunities: function() {
+      let adminChampArray;
+      if (!this.isAdmin || !this.isChampion) {
+        adminChampArray = opportunityList.opportunities.filter(opp => {
+          return opp.status === "open";
+        });
+      } else {
+        adminChampArray = opportunityList.opportunities;
+      }
       if (this.filterByStatus) {
-        return opportunityList.opportunities.filter(opp => {
+        return adminChampArray.filter(opp => {
           for (let i = 0; i < this.selectedStatuses.length; i++) {
             if (opp.status === this.selectedStatuses[i]) {
               return true;
@@ -66,7 +84,7 @@ export default {
           }
         });
       } else {
-        return opportunityList.opportunities.filter(opp => {
+        return adminChampArray.filter(opp => {
           for (let i = 0; i < this.selectedOffices.length; i++) {
             if (opp.office === this.selectedOffices[i]) {
               return true;
@@ -88,6 +106,16 @@ export default {
     toggleFilterByStatus() {
       this.filterByStatus = !this.filterByStatus;
     }
+  },
+  mounted: function() {
+    axios
+      .get(
+        "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity",
+        this.authHeader
+      )
+      .then(response => {
+        this.opportunityList = response.data.opportunities; /// ?????
+      });
   }
 };
 </script>
