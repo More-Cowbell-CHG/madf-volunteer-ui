@@ -157,7 +157,6 @@ export default {
       //   });
     },
     buildDate(dateObj, time) {
-      console.log("DATE OBJ", dateObj);
       const timeSplit = time.split(":");
       const year = dateObj.getUTCFullYear();
       const month = dateObj.getUTCMonth();
@@ -168,7 +167,6 @@ export default {
       newDate.setMonth(month);
       newDate.setDate(day);
       newDate.setHours(timeSplit[0], timeSplit[1], 0, 0);
-      console.log("NEW DATE", newDate);
       return newDate.getTime();
     }
   }
