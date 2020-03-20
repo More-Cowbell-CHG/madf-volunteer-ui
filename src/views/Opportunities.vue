@@ -40,7 +40,6 @@ export default {
   data: function() {
     return {
       opportunityList: undefined,
-      isAdmin: true,
       filterByStatus: false,
       selectedOffices: ["SLC", "FLD", "RNC", "MIC"], // Must be an array reference!
       options: [
@@ -49,20 +48,36 @@ export default {
         { text: "Raleigh", value: "RNC" },
         { text: "Michigan", value: "MIC" }
       ],
-      selectedStatuses: ["pending", "open", "closed", "archived"],
-      statusOptions: [
-        { text: "pending", value: "pending" },
-        { text: "open", value: "open" },
-        { text: "closed", value: "closed" },
-        { text: "archived", value: "archived" }
-      ]
+      selectedStatuses: ["pending", "open", "closed", "archived"]
     };
   },
   computed: {
-    ...mapGetters(["authHeader"]),
+    ...mapGetters(["authHeader", "isAdmin", "isChampion"]),
+    statusOptions: function() {
+      if (this.isAdmin || this.isChampion) {
+        return [
+          { text: "pending", value: "pending" },
+          { text: "open", value: "open" },
+          { text: "closed", value: "closed" },
+          { text: "archived", value: "archived" }
+        ];
+      } else {
+        return [{ text: "open", value: "open" }];
+      }
+    },
+
     opportunities: function() {
+      let adminChampArray;
+      if (!this.isAdmin || !this.isChampion) {
+        adminChampArray = opportunityList.opportunities.filter(opp => {
+          return opp.status === "open";
+        });
+      } else {
+        adminChampArray = opportunityList.opportunities;
+      }
+      console.log("CHAMPARRAY", adminChampArray);
       if (this.filterByStatus) {
-        return opportunityList.opportunities.filter(opp => {
+        return adminChampArray.filter(opp => {
           for (let i = 0; i < this.selectedStatuses.length; i++) {
             if (opp.status === this.selectedStatuses[i]) {
               return true;
@@ -70,7 +85,7 @@ export default {
           }
         });
       } else {
-        return opportunityList.opportunities.filter(opp => {
+        return adminChampArray.filter(opp => {
           for (let i = 0; i < this.selectedOffices.length; i++) {
             if (opp.office === this.selectedOffices[i]) {
               return true;
@@ -101,7 +116,7 @@ export default {
       )
       .then(response => {
         console.log("Response: ", response);
-        //this.opportunitiesList = response.data.opportunities   /// ?????
+        this.opportunityList = response.data.opportunities; /// ?????
       });
   }
 };

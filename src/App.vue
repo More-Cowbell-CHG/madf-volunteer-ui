@@ -20,7 +20,7 @@
             <b-nav-item to="/">Home</b-nav-item>
             <b-nav-item to>Medical missions</b-nav-item>
             <b-nav-item to="/opportunities">Opportunities</b-nav-item>
-            <b-nav-item to>Partners</b-nav-item>
+            <b-nav-item to="/create/opportunity">Create</b-nav-item>
             <b-nav-item to="/about">About</b-nav-item>
             <b-nav-item to>Contact</b-nav-item>
             <b-nav-item href="https://makingadifferencefdn.org/blog/" target="_blank">Blog</b-nav-item>

@@ -51,8 +51,7 @@ export default {
         this.authHeader
       )
       .then(response => {
-        console.log("Response: ", response);
-        //this.opportunitiesList = response   /// ?????
+        this.oppData = response; /// ?????
       });
   }
 };

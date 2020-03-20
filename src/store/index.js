@@ -8,16 +8,16 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     user: {
-      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVlNzNjZWM4M2ZkZmRiMzUyN2IyYTdlZSIsIm5hbWUiOiJOaWNrIE5lbHNvbiIsImVtYWlsIjoibmlja25sc25AZ21haWwuY29tIiwicm9sZXMiOlsidm9sdW50ZWVyIiwiY2hhbXBpb24iLCJhZG1pbiJdfSwiaWF0IjoxNTg0NjQ4NzU3fQ.vpf2FY6lgSiaPk9yik29_-Fl3QcmSKfzP8vFL0dsTPs"
     },
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVlNzNjZWM4M2ZkZmRiMzUyN2IyYTdlZSIsIm5hbWUiOiJOaWNrIE5lbHNvbiIsImVtYWlsIjoibmlja25sc25AZ21haWwuY29tIiwicm9sZXMiOlsidm9sdW50ZWVyIiwiY2hhbXBpb24iLCJhZG1pbiJdfSwiaWF0IjoxNTg0NjQ4NzU3fQ.vpf2FY6lgSiaPk9yik29_-Fl3QcmSKfzP8vFL0dsTPs"
     
   },
   mutations: {
     SET_USER_TOKEN(state, payload) {
-      state.user.token = payload.token
+      state.token = payload
     },
     SET_USER(state, payload) {
-      state.user = payload.user
+      state.user = payload
     }
   },
   actions: {
@@ -39,7 +39,9 @@ export default new Vuex.Store({
           reqBody
           )
           .then(response => {
-            context.commit("SET_USER", response.data)
+            console.log("LOGIN RESPONSE", response.data)
+            context.commit("SET_USER", response.data.user)
+            context.commit("SET_USER_TOKEN", response.data.token)
             router.push("/opportunities");
         });
     }
@@ -54,5 +56,11 @@ export default new Vuex.Store({
         headers: { Authorization: `Bearer ${state.user.token}` }
       };
     },
+    isAdmin(state) {
+      return state.user.roles.indexOf("admin") >= 0
+    },
+    isChampion(state) {
+      return state.user.roles.indexOf("champion") >= 0
+    }
   },
 })
