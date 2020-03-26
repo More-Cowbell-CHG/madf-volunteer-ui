@@ -183,7 +183,6 @@ export default {
         axios
           .pu(
             "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity",
-            this.authHeader,
             submitData
           )
           .then(response => {
@@ -193,7 +192,6 @@ export default {
         axios
           .post(
             "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity",
-            this.authHeader,
             submitData
           )
           .then(response => {

@@ -48,7 +48,7 @@ export default {
         roles: this.userData.roles,
         email: this.userData.email
       },
-      isAdmin: true,
+      isAdmin: this.$store.state.isAdmin,
       roleOptions: ["volunteer", "champion", "admin"]
     };
   },
