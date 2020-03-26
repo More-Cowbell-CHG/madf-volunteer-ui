@@ -24,9 +24,10 @@
           name="offices-1"
         ></b-form-checkbox-group>
       </b-form-group>
-      <BListGroup>
+      <BListGroup v-if="this.opportunities">
         <OpportunityListItem v-for="(opp) in opportunities" :key="opp._id" v-bind:oppData="opp" />
       </BListGroup>
+      <h4 v-else>No Opportunities Available</h4>
     </BContainer>
   </div>
 </template>
@@ -35,24 +36,27 @@
 import axios from "axios";
 import { mapGetters } from "vuex";
 import OpportunityListItem from "@/components/OpportunityListItem.vue";
-import opportunityList from "@/assets/opportunitiesGet.json";
+// import opportunityList from "@/assets/opportunitiesGet.json";
 export default {
   data: function() {
     return {
       opportunityList: undefined,
+      filteredOpps: undefined,
       filterByStatus: false,
-      selectedOffices: ["SLC", "FLD", "RNC", "MIC"], // Must be an array reference!
+      selectedOffices: ["MIDV", "FLD", "RNC", "MIC"], // Must be an array reference!
       options: [
-        { text: "Salt Lake City", value: "SLC" },
+        { text: "Midvale", value: "MIDV" },
         { text: "Ft. Lauderdale", value: "FLD" },
         { text: "Raleigh", value: "RNC" },
         { text: "Michigan", value: "MIC" }
       ],
-      selectedStatuses: ["pending", "open", "closed", "archived"]
+      selectedStatuses: ["pending", "open", "closed", "archived"],
+      isAdmin: this.$store.state.isAdmin,
+      isChampion: this.$store.state.isChampion
     };
   },
   computed: {
-    ...mapGetters(["authHeader", "isAdmin", "isChampion"]),
+    ...mapGetters(["authHeader"]),
     statusOptions: function() {
       if (this.isAdmin || this.isChampion) {
         return [
@@ -62,35 +66,44 @@ export default {
           { text: "archived", value: "archived" }
         ];
       } else {
-        return [{ text: "open", value: "open" }];
+        return [
+          { text: "pending", value: "pending" },
+          { text: "open", value: "open" },
+          { text: "closed", value: "closed" },
+          { text: "archived", value: "archived" }
+        ];
       }
     },
 
     opportunities: function() {
       let adminChampArray;
-      if (!this.isAdmin || !this.isChampion) {
-        adminChampArray = opportunityList.opportunities.filter(opp => {
-          return opp.status === "open";
-        });
-      } else {
-        adminChampArray = opportunityList.opportunities;
-      }
-      if (this.filterByStatus) {
-        return adminChampArray.filter(opp => {
-          for (let i = 0; i < this.selectedStatuses.length; i++) {
-            if (opp.status === this.selectedStatuses[i]) {
-              return true;
+      if (this.opportunityList) {
+        if (!this.isAdmin || !this.isChampion) {
+          adminChampArray = this.opportunityList.filter(opp => {
+            return opp.status === "open";
+          });
+        } else {
+          adminChampArray = this.opportunityList;
+        }
+        if (this.filterByStatus) {
+          return adminChampArray.filter(opp => {
+            for (let i = 0; i < this.selectedStatuses.length; i++) {
+              if (opp.status === this.selectedStatuses[i]) {
+                return true;
+              }
             }
-          }
-        });
-      } else {
-        return adminChampArray.filter(opp => {
-          for (let i = 0; i < this.selectedOffices.length; i++) {
-            if (opp.office === this.selectedOffices[i]) {
-              return true;
+          });
+        } else {
+          return adminChampArray.filter(opp => {
+            for (let i = 0; i < this.selectedOffices.length; i++) {
+              if (opp.office === this.selectedOffices[i]) {
+                return true;
+              }
             }
-          }
-        });
+          });
+        }
+      } else {
+        return null;
       }
     },
     filterByText: function() {
@@ -107,11 +120,10 @@ export default {
       this.filterByStatus = !this.filterByStatus;
     }
   },
-  mounted: function() {
+  beforeMount: function() {
     axios
       .get(
-        "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity",
-        this.authHeader
+        "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity"
       )
       .then(response => {
         this.opportunityList = response.data.opportunities; /// ?????

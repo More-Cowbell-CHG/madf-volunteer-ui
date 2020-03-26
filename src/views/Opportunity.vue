@@ -47,8 +47,7 @@ export default {
   mounted: function() {
     axios
       .get(
-        `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity/${this.$route.params.id}`,
-        this.authHeader
+        `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity/${this.$route.params.id}`
       )
       .then(response => {
         this.oppData = response; /// ?????

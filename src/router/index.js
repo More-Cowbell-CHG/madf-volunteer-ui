@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+// import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('../views/SignIn.vue')
   },
   {
     path: '/about',
@@ -21,12 +21,14 @@ const routes = [
   {
     path: '/opportunities',
     name: 'Opportunities',
-    component: () => import(/* webpackChunkName: "opportunites" */ '../views/Opportunities.vue')
+    component: () => import(/* webpackChunkName: "opportunites" */ '../views/Opportunities.vue'),
+    meta: {requiresAuth: true}
   },
   {
     path: '/opportunity/:id',
     name: 'Opportunity',
-    component: () => import(/* webpackChunkName: "opportunity" */ '../views/Opportunity.vue')
+    component: () => import(/* webpackChunkName: "opportunity" */ '../views/Opportunity.vue'),
+    meta: {requiresAuth: true}
   },
   {
     path: '/edit/opportunity/:id',

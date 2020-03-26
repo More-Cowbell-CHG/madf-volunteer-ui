@@ -16,11 +16,11 @@
         <b-navbar-toggle class="ml-auto" target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav>
+          <b-navbar-nav v-if="isLoggedIn">
             <b-nav-item to="/opportunities">Home</b-nav-item>
             <b-nav-item to="/create/opportunity">Create</b-nav-item>
 
-            <b-nav-item href="https://makingadifferencefdn.org/blog/" target="_blank">Blog</b-nav-item>
+            <!-- <b-nav-item href="https://makingadifferencefdn.org/blog/" target="_blank">Blog</b-nav-item> -->
           </b-navbar-nav>
 
           <b-navbar-nav class="ml-auto">
@@ -28,7 +28,11 @@
               <template v-slot:button-content>
                 <em>User</em>
               </template>
-              <b-dropdown-item to="/sign-in">Sign in</b-dropdown-item>
+              <b-dropdown-item v-if="!$store.state.user" to="/sign-in">Sign in</b-dropdown-item>
+              <template v-else>
+                <b-dropdown-item :to="`/users/${$store.state.user._id}`">User Profile</b-dropdown-item>
+                <b-dropdown-text class="link" v-on:click="logout">Logout</b-dropdown-text>
+              </template>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
@@ -55,10 +59,17 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 export default {
   mounted() {
     document.querySelector(".vh").style.minHeight =
       window.innerHeight - 200 + "px";
+  },
+  methods: {
+    ...mapActions(["logout"])
+  },
+  computed: {
+    ...mapGetters(["isLoggedIn"])
   }
 };
 </script>
@@ -70,6 +81,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.link {
+  cursor: pointer;
 }
 
 #nav {
