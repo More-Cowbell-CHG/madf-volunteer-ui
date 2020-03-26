@@ -181,7 +181,7 @@ export default {
 
       if (this.editMode) {
         axios
-          .pu(
+          .put(
             "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity",
             this.authHeader,
             submitData

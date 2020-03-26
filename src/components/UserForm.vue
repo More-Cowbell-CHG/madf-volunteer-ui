@@ -1,6 +1,6 @@
 <template>
   <b-container id="user-form">
-    <b-form @submit="handleSubmit">
+    <b-form @submit.prevent="handleSubmit">
       <b-form-group id="input-group-1" label="Email address:" label-for="input-1">
         <b-form-input
           id="input-1"
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   props: {
     userData: {
@@ -54,7 +55,14 @@ export default {
   },
   methods: {
     handleSubmit() {
-      // handle submit
+      axios
+        .put(
+          `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/user/${this.$route.params.id}`,
+          this.userForm
+        )
+        .then(response => {
+          this.userData = response.data;
+        });
     }
   }
 };
