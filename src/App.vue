@@ -19,8 +19,6 @@
           <b-navbar-nav v-if="isLoggedIn">
             <b-nav-item to="/opportunities">Home</b-nav-item>
             <b-nav-item to="/create/opportunity">Create</b-nav-item>
-
-            <!-- <b-nav-item href="https://makingadifferencefdn.org/blog/" target="_blank">Blog</b-nav-item> -->
           </b-navbar-nav>
 
           <b-navbar-nav class="ml-auto">
@@ -61,6 +59,11 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 export default {
+  data: function() {
+    return {
+      userId: localStorage.getItem("token") ? localStorage.getItem("token") : ""
+    };
+  },
   mounted() {
     document.querySelector(".vh").style.minHeight =
       window.innerHeight - 200 + "px";
