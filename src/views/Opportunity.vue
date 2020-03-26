@@ -5,7 +5,13 @@
       <b-button v-if="isChampion" type="button" @click="handleEditMode" variant="primary">Edit</b-button>
       <b-button v-if="isAdmin" type="button" @click="handleDelete" variant="danger">Delete</b-button>
 
-      <OpportunityFullView :oppData="oppData" />
+      <OpportunityFullView v-on:signup="handleSignup" :oppData="oppData" />
+
+      <b-modal id="modal-1" title="Success!">
+        <p class="my-4">Signup Successfull.</p>
+        <p class="my-4">Please make sure you arrive on time.</p>
+        <b-button class="mt-3" block @click="$bvModal.hide('modal-1')">Close</b-button>
+      </b-modal>
     </template>
   </div>
 </template>
@@ -13,7 +19,7 @@
 <script>
 import axios from "axios";
 import { mapGetters } from "vuex";
-import opportunityList from "@/assets/opportunities.json";
+// import opportunityList from "@/assets/opportunities.json";
 import OpportunityFullView from "@/components/OpportunityFullView";
 
 export default {
@@ -22,19 +28,11 @@ export default {
   },
   data: function() {
     return {
-      oppData: opportunityList.find(x => x._id === this.$route.params.id)
+      oppData: null
     };
   },
   computed: {
-    ...mapGetters(["authHeader"]),
-    isChampion: function() {
-      // This will have logic checking the user info that comes back from DB
-      return true;
-    },
-    isAdmin: function() {
-      // This will have logic checking the user info that comes back from DB
-      return true;
-    }
+    ...mapGetters(["authHeader", "isAdmin", "isChampion"])
   },
   methods: {
     handleEditMode() {
@@ -42,6 +40,15 @@ export default {
     },
     handleDelete() {
       // Delete call to db via axios
+    },
+    handleSignup() {
+      axios
+        .post(
+          `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity/${this.oppData._id}/signup`
+        )
+        .then(() => {
+          this.$bvModal.show("modal-1");
+        });
     }
   },
   mounted: function() {
@@ -50,7 +57,7 @@ export default {
         `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity/${this.$route.params.id}`
       )
       .then(response => {
-        this.oppData = response; /// ?????
+        this.oppData = response.data; /// ?????
       });
   }
 };

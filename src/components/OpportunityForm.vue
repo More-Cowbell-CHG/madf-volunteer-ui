@@ -114,7 +114,7 @@ export default {
       },
       officeLocations: [
         { value: null, text: "Please select a location" },
-        { text: "Salt Lake City", value: "SLC", tz: "-7" },
+        { text: "Midvale", value: "MIDV", tz: "-7" },
         { text: "Ft. Lauderdale", value: "FLD", tz: "-5" },
         { text: "Raleigh", value: "RNC", tz: "-5" },
         { text: "Michigan", value: "MIC", tz: "-5" }
@@ -181,8 +181,8 @@ export default {
 
       if (this.editMode) {
         axios
-          .pu(
-            "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity",
+          .put(
+            `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity/${this.editFormData._id}`,
             submitData
           )
           .then(response => {

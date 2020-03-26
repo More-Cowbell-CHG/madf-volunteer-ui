@@ -84,6 +84,12 @@ export default new Vuex.Store({
     },
     isLoggedIn: (state) => {
       return !!state.user
+    },
+    isChampion: (state) => {
+      return state.isChampion
+    },
+    isAdmin: (state) => {
+      return state.isAdmin
     }
   },
 })

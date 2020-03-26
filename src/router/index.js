@@ -34,19 +34,19 @@ const routes = [
     path: '/edit/opportunity/:id',
     name: 'Edit Opportunity',
     component: () => import(/* webpackChunkName: "editOpportunity" */ '../views/EditOpportunity.vue'),
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, requiresChampion: true}
   },
   {
     path: '/create/opportunity',
     name: 'Create New Opportunity',
     component: () => import(/* webpackChunkName: "createOpportunity" */ '../views/CreateOpportunity.vue'),
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, requiresChampion: true}
   },
   {
     path: '/users',
     name: 'Users',
     component: () => import(/* webpackChunkName: "users" */ '../views/Users.vue'),
-    meta: {requiresAuth: true}
+    meta: {requiresAuth: true, requiresAdmin: true}
   },
   {
     path: '/users/:id',
@@ -67,10 +67,21 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const loggedIn = localStorage.getItem('user');
-  if(to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
+  // let isAdmin, isChampion;
+  const user = localStorage.getItem('user');
+  // if(user) {
+  //   isAdmin = JSON.parse(user).roles.some(e => e === "admin");
+  //   isChampion = JSON.parse(user).roles.some(e => e === "champion" || e === "admin");
+  // }
+  if(to.matched.some(record => record.meta.requiresAuth) && !user) {
     next("/sign-in")
   }
+  // if(to.matched.some(record => record.meta.requiresAdmin) && !isAdmin) {
+  //   next("/opportunities")
+  // }
+  // if(to.matched.some(record => record.meta.requiresChampion) && !isChampion) {
+  //   next("/opportunities")
+  // }
   next();
 })
 
