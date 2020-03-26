@@ -23,7 +23,6 @@ export default {
     ...mapGetters(["authHeader"])
   },
   mounted: function() {
-    console.log("MOUNTED");
     axios
       .get(
         `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/user/${this.$route.params.id}`

@@ -29,7 +29,6 @@ export default new Vuex.Store({
       state.isAdmin = payload;
     },
     CLEAR_DATA() {
-      console.log("GOT HERE")
       localStorage.removeItem("user");
       localStorage.removeItem("token");
       location.reload()
