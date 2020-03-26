@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+// import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('../views/SignIn.vue')
   },
   {
     path: '/about',
@@ -21,32 +21,38 @@ const routes = [
   {
     path: '/opportunities',
     name: 'Opportunities',
-    component: () => import(/* webpackChunkName: "opportunites" */ '../views/Opportunities.vue')
+    component: () => import(/* webpackChunkName: "opportunites" */ '../views/Opportunities.vue'),
+    meta: {requiresAuth: true}
   },
   {
     path: '/opportunity/:id',
     name: 'Opportunity',
-    component: () => import(/* webpackChunkName: "opportunity" */ '../views/Opportunity.vue')
+    component: () => import(/* webpackChunkName: "opportunity" */ '../views/Opportunity.vue'),
+    meta: {requiresAuth: true}
   },
   {
     path: '/edit/opportunity/:id',
     name: 'Edit Opportunity',
-    component: () => import(/* webpackChunkName: "editOpportunity" */ '../views/EditOpportunity.vue')
+    component: () => import(/* webpackChunkName: "editOpportunity" */ '../views/EditOpportunity.vue'),
+    meta: {requiresAuth: true}
   },
   {
     path: '/create/opportunity',
     name: 'Create New Opportunity',
-    component: () => import(/* webpackChunkName: "createOpportunity" */ '../views/CreateOpportunity.vue') 
+    component: () => import(/* webpackChunkName: "createOpportunity" */ '../views/CreateOpportunity.vue'),
+    meta: {requiresAuth: true}
   },
   {
     path: '/users',
     name: 'Users',
-    component: () => import(/* webpackChunkName: "users" */ '../views/Users.vue') 
+    component: () => import(/* webpackChunkName: "users" */ '../views/Users.vue'),
+    meta: {requiresAuth: true}
   },
   {
     path: '/users/:id',
     name: 'User View',
-    component: () => import(/* webpackChunkName: "user" */ '../views/UserEdit.vue') 
+    component: () => import(/* webpackChunkName: "user" */ '../views/UserEdit.vue'),
+    meta: {requiresAuth: true}
   },
   {
     path: '/sign-in',
@@ -58,6 +64,14 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  const loggedIn = localStorage.getItem('user');
+  if(to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
+    next("/sign-in")
+  }
+  next();
 })
 
 export default router

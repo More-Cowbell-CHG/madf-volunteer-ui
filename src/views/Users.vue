@@ -30,8 +30,7 @@ export default {
   mounted: function() {
     axios
       .get(
-        "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/user",
-        this.authHeader
+        "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/user"
       )
       .then(response => {
         this.users = response.data.users;

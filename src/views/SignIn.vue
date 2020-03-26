@@ -89,16 +89,21 @@
               >Passwords Do not match.</b-form-invalid-feedback>
             </b-form-group>
 
-            <b-button
-              class="my-2 mx-1 w-50"
-              type="button"
-              @click="toggleLoginMode"
-              variant="success"
-            >{{ toggleText }}</b-button>
-
             <b-button class="my-2 mx-1 w-50" type="submit" variant="primary">Submit</b-button>
             <b-button class="my-2 mx-1 w-50" type="reset" variant="danger">Reset</b-button>
           </b-form>
+          <template v-if="isLogin">
+            <p>
+              Create Account
+              <a class="link" v-on:click="toggleLoginMode">here</a>
+            </p>
+          </template>
+          <template v-else>
+            <p>
+              Already have an account?
+              <a class="link" v-on:click="toggleLoginMode">Login here</a>
+            </p>
+          </template>
         </b-col>
       </b-row>
     </b-container>
@@ -151,6 +156,11 @@ export default {
       }
     }
   },
+  mounted: function() {
+    if (this.$store.getters.isLoggedIn) {
+      this.logout();
+    }
+  },
   computed: {
     toggleText: function() {
       return this.isLogin
@@ -159,7 +169,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["handleLogin", "handleCreateAccount"]),
+    ...mapActions(["handleLogin", "handleCreateAccount", "logout"]),
     toggleLoginMode() {
       this.isLogin = !this.isLogin;
     },
@@ -197,3 +207,9 @@ export default {
   }
 };
 </script>
+<style>
+a.link:not([href]) {
+  color: blue;
+  cursor: pointer;
+}
+</style>
