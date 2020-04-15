@@ -20,7 +20,7 @@
           style="max-width: 20rem;"
           class="mb-2"
         >
-          <b-card-text>Number of spots open: {{ slot.limit }}</b-card-text>
+          <b-card-text>Number of spots open: {{ slot.limit - slot.volunteers.length }}</b-card-text>
 
           <b-button
             @click="handleSlotSignup(slot.start)"
