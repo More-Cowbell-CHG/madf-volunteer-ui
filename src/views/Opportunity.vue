@@ -42,7 +42,6 @@ export default {
       // Delete call to db via axios
     },
     handleSignup(start) {
-      console.log("Start", start);
       axios
         .post(
           `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity/${this.oppData._id}/signup`,
@@ -67,5 +66,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-</style>
