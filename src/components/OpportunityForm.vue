@@ -97,7 +97,6 @@ export default {
           name: "",
           address: ""
         },
-        status: "pending",
         deadline: {
           date: new Date(),
           time: ""
