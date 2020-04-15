@@ -41,10 +41,14 @@ export default {
     handleDelete() {
       // Delete call to db via axios
     },
-    handleSignup() {
+    handleSignup(start) {
+      console.log("Start", start);
       axios
         .post(
-          `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity/${this.oppData._id}/signup`
+          `https://making-a-difference-foundation-volunteer-l6xs.onrender.com/opportunity/${this.oppData._id}/signup`,
+          {
+            start: start
+          }
         )
         .then(() => {
           this.$bvModal.show("modal-1");

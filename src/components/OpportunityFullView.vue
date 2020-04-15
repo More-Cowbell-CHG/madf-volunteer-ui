@@ -23,7 +23,7 @@
           <b-card-text>Number of spots open: {{ slot.limit }}</b-card-text>
 
           <b-button
-            @click="handleSlotSignup"
+            @click="handleSlotSignup(slot.start)"
             type="button"
             :disabled="!waiverStatus"
             variant="primary"
@@ -82,9 +82,9 @@ export default {
     // OpportunityForm
   },
   methods: {
-    handleSlotSignup() {
+    handleSlotSignup(start) {
       if (this.waiverStatus) {
-        this.$emit("signup");
+        this.$emit("signup", start);
       }
     },
     handleApproval() {
