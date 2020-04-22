@@ -43,20 +43,18 @@ export default {
       opportunityList: undefined,
       filteredOpps: undefined,
       filterByStatus: false,
-      selectedOffices: ["MIDV", "FLD", "RNC", "MIC"], // Must be an array reference!
+      selectedOffices: ["MIDV", "FTLA", "DURH", "GRAP"], // Must be an array reference!
       options: [
         { text: "Midvale", value: "MIDV" },
-        { text: "Ft. Lauderdale", value: "FLD" },
-        { text: "Raleigh", value: "RNC" },
-        { text: "Michigan", value: "MIC" }
+        { text: "Ft. Lauderdale", value: "FTLA" },
+        { text: "Raleigh", value: "DURH" },
+        { text: "Michigan", value: "GRAP" }
       ],
-      selectedStatuses: ["pending", "open", "closed", "archived"],
-      isAdmin: this.$store.state.isAdmin,
-      isChampion: this.$store.state.isChampion
+      selectedStatuses: ["pending", "open", "closed", "archived"]
     };
   },
   computed: {
-    ...mapGetters(["authHeader"]),
+    ...mapGetters(["authHeader", "isChampion", "isAdmin"]),
     statusOptions: function() {
       if (this.isAdmin || this.isChampion) {
         return [
@@ -78,7 +76,7 @@ export default {
     opportunities: function() {
       let adminChampArray;
       if (this.opportunityList) {
-        if (!this.isAdmin || !this.isChampion) {
+        if (!this.isAdmin && !this.isChampion) {
           adminChampArray = this.opportunityList.filter(opp => {
             return opp.status === "open";
           });
