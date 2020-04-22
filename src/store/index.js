@@ -22,12 +22,6 @@ export default new Vuex.Store({
     SET_USER(state, payload) {
       state.user = payload
     },
-    SET_IS_ADMIN(state, payload) {
-      state.isAdmin = payload;
-    },
-    SET_IS_CHAMPION(state, payload) {
-      state.isAdmin = payload;
-    },
     CLEAR_DATA() {
       localStorage.removeItem("user");
       localStorage.removeItem("token");
@@ -46,7 +40,7 @@ export default new Vuex.Store({
           dispatch("handleLogin", { email, password })
         });
       },
-      handleLogin({commit, state}, reqBody) {
+      handleLogin({commit}, reqBody) {
         axios
         .post(
           "https://making-a-difference-foundation-volunteer-l6xs.onrender.com/login",
@@ -58,12 +52,7 @@ export default new Vuex.Store({
             localStorage.setItem('user', JSON.stringify(response.data.user));
             localStorage.setItem('token', JSON.stringify(response.data.token))
             
-            if(state.user.roles.indexOf("admin") >= 0) {
-              commit("SET_IS_ADMIN", true)
-            }
-            if(state.user.roles.indexOf("champioin") >= 0) {
-              commit("SET_IS_CHAMPION", true)
-            }
+            
             router.push("/opportunities");
         });
     },
@@ -85,10 +74,10 @@ export default new Vuex.Store({
       return !!state.user
     },
     isChampion: (state) => {
-      return state.isChampion
+      return state.user.roles.some(role => role === "champion")
     },
     isAdmin: (state) => {
-      return state.isAdmin
+      return state.user.roles.some(role => role === "admin")
     }
   },
 })

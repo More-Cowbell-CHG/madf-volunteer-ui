@@ -114,9 +114,9 @@ export default {
       officeLocations: [
         { value: null, text: "Please select a location" },
         { text: "Midvale", value: "MIDV", tz: "-7" },
-        { text: "Ft. Lauderdale", value: "FLD", tz: "-5" },
-        { text: "Raleigh", value: "RNC", tz: "-5" },
-        { text: "Michigan", value: "MIC", tz: "-5" }
+        { text: "Ft. Lauderdale", value: "FTLA", tz: "-5" },
+        { text: "Raleigh", value: "DURH", tz: "-5" },
+        { text: "Michigan", value: "GRAP", tz: "-5" }
       ]
     };
   },

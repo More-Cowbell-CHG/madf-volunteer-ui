@@ -19,7 +19,7 @@
         <b-form-checkbox-group
           id="roles-edit"
           v-if="isAdmin"
-          v-model="userData.roles"
+          v-model="userForm.roles"
           :options="roleOptions"
           name="roles-edit"
         ></b-form-checkbox-group>
@@ -35,6 +35,7 @@
 
 <script>
 import axios from "axios";
+import { mapGetters } from "vuex";
 export default {
   props: {
     userData: {
@@ -49,9 +50,11 @@ export default {
         roles: this.userData.roles,
         email: this.userData.email
       },
-      isAdmin: this.$store.state.isAdmin,
       roleOptions: ["volunteer", "champion", "admin"]
     };
+  },
+  computed: {
+    ...mapGetters(["isChampion", "isAdmin"])
   },
   methods: {
     handleSubmit() {
